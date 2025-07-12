@@ -22,12 +22,12 @@
             <!-- 阶段三：处理单条订单的两种渲染情况 -->
 
             <!-- 情况 A: 订单有效，且关联的活动也存在 -->
-            <div v-if="order.activity" class="order-content">
-              <h4>{{ order.activity.name }}</h4>
+            <div v-if="order.Activity" class="order-content">
+              <h4>{{ order.Activity.name }}</h4>
               <p><strong>报名时间:</strong> {{ formatDateTime(order.createdAt) }}</p>
-              <p><strong>活动地点:</strong> {{ order.activity.location }}</p>
-              <p><strong>活动开始时间:</strong> {{ formatDateTime(order.activity.startTime) }}</p>
-              <router-link :to="`/activities/${order.activity.id}`" class="button">查看活动详情</router-link>
+              <p><strong>活动地点:</strong> {{ order.Activity.location }}</p>
+              <p><strong>活动开始时间:</strong> {{ formatDateTime(order.Activity.startTime) }}</p>
+              <router-link :to="`/activities/${order.ActivityId}`" class="button">查看活动详情</router-link>
             </div>
 
             <!-- 情况 B: 订单有效，但关联的活动不存在 (activity is null) -->
