@@ -27,6 +27,7 @@ apiClient.interceptors.request.use(config => {
 
 // 响应拦截器：处理401等错误
 apiClient.interceptors.response.use(response => {
+    console.log(`[API Response] for ${response.config.url}:`, response.data);
     return response;
 }, error => {
     if (error.response && error.response.status === 401) {
@@ -49,6 +50,7 @@ export const getActivities = (params) => apiClient.get('/activities', { params }
 export const getActivityById = (id) => apiClient.get(`/activities/${id}`);
 // (Admin) 创建活动
 export const createActivity = (activityData) => apiClient.post('/activities', activityData);
+export const deleteActivity = (id) => apiClient.delete(`/activities/${id}`);
 
 // --- 报名/订单 ---
 export const enrollActivity = (activityId) => apiClient.post(`/activities/${activityId}/enroll`);
